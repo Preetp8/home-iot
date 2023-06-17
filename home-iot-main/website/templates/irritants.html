@@ -1,0 +1,142 @@
+{% extends "base.html"%}
+
+{% block title %}Irritants{% endblock%}
+
+
+{% block content%}
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
+    </head>
+  
+
+    <div class="heading-container">
+        <h1 class="greeting">Irritants</h1>
+    </div>
+
+    <div class="gauge-card">
+        <div class="gauge-card-text">
+          <h3>Allergen Risk</h3>
+        </div>
+        <div id="gauge"></div>
+      </div>
+
+    <div class="gauge-card">
+
+        <div class="more-irritants">
+            <img src="{{ url_for('static', filename='icons/ph_sun-bold.svg') }}" alt="Sun icon">
+            <h2>UV</h2>
+            <h1 class="UV-num level"></h1>
+        </div>
+
+        <div class="more-irritants">
+            <!-- <i class="fa-regular fa-sun"></i> -->
+            <img src="{{ url_for('static', filename='icons/pollen.svg') }}" alt="Pollen icon">
+            <h2>Pollen</h2>
+            <h1 class="pollen-num level"></h1>
+        </div>
+
+        <div class="more-irritants">
+            <!-- <i class="fa-regular fa-sun"></i> -->
+            <img src="{{ url_for('static', filename='icons/Tree.svg') }}" alt="Tree icon" style="width: 32px;">
+            <h2>Trees</h2>
+            <h1 class="tree-num level"></h1>
+        </div>
+    
+    </div>
+
+
+    <script>
+        
+        // Other allergens
+        const date = new Date();
+        const time = date.getHours();
+        const low = getRandomInt(1, 4);
+        const med = getRandomInt(4, 7);
+        const high = getRandomInt(7, 10);
+        let uvNum = 0;
+        if (time <=6 || time >=20){
+            uvNum = 0;
+        }
+        else if ((time >=7 && time <= 8) || (time >= 16 && time <=18)){
+            uvNum = low;
+        }
+        else if ((time >=9 && time <= 11) || (time >= 14 && time <=16)){
+            uvNum = med;
+        }
+        else{
+            uvNum = high;
+        }
+        const uvEle = document.querySelector('.UV-num');
+        
+
+        const month = date.getMonth();
+        const lessPollen = getRandomInt(0, 6); 
+        const morePollen = getRandomInt(7, 12); 
+        let pollenNum = 0;
+        if (month >=6 && month <= 9){
+            pollenNum = morePollen;
+        }
+        else{
+            pollenNum = lessPollen;
+        }
+        const pollenEle = document.querySelector('.pollen-num');
+
+
+        let treeNum = 0;
+        if (month >=3 && month <= 6){
+            treeNum = morePollen;
+        }
+        else{
+            treeNum = lessPollen;
+        }
+        const treeEle = document.querySelector('.tree-num');
+        // const levelEle = document.querySelector('.level');
+
+        if (uvNum >= 8 && uvNum <= 10) {
+            uvEle.style.color = "red";
+        } else if (uvNum >= 6 && uvNum <= 7) {
+            uvEle.style.color = "orange";
+        } else if (uvNum >= 3 && uvNum <= 5){
+            uvEle.style.color = "yellow";
+        } else{
+            uvEle.style.color = "green";
+        }
+
+        if (pollenNum >= 9 && pollenNum <= 12) {
+            pollenEle.style.color = "red";
+        } else if (pollenNum >= 5 && pollenNum <= 8) {
+            pollenEle.style.color = "orange";
+        } else {
+            pollenEle.style.color = "green";
+        }
+
+        if (treeNum >= 9 && treeNum <= 12) {
+            treeEle.style.color = "red";
+        } else if (treeNum >= 5 && treeNum <= 8) {
+            treeEle.style.color = "orange";
+        } else {
+            treeEle.style.color = "green";
+        }
+
+        var g = new JustGage({
+            id: "gauge",
+            value: (uvNum + pollenNum + treeNum)/32 * 100,
+            min: 0,
+            max: 100,
+            title: "Allergen Risk",
+
+            valueFontColor: "#000",
+            valueMinFontSize: 48 ,
+            levelColors: ["#00ff00", "#ffa500", "#ff0000"],
+            gaugeWidthScale: 0.6,
+            counter: true
+        });
+
+        uvEle.textContent = uvNum;
+        pollenEle.textContent = pollenNum;
+        treeEle.textContent = treeNum;
+
+    </script>
+
+{% endblock %}

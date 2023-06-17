@@ -1,0 +1,956 @@
+{% extends "base.html"%}
+
+{% block title %}Controls{% endblock%}
+
+
+{% block content%}
+
+    <div class="heading-container">
+      <h1 class="greeting">Controls</h1>
+      <!-- <div class="global-clock">
+        <span></span>
+      </div> -->
+    </div>
+
+
+    <div class="cards-container">
+          <!-- Floor plan -->
+          <div class="card card-row1">
+            <svg
+              width="100%"
+              height="100%"
+              id="floor_plan"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 738.48 691.92"
+            >
+              <image
+                width="2950"
+                height="2890"
+                transform="scale(.24)"
+                xlink:href="{{ url_for('static', filename='FloorPlan.png') }}"
+              />
+        
+              <line
+                class="door"
+                id="door-8"
+                x1="601.68"
+                y1="217.15"
+                x2="601.68"
+                y2="278.92"
+                fill="none"
+                stroke="#714d27"
+                stroke-miterlimit="10"
+                stroke-width="7"
+              />
+              <line
+                class="door"
+                id="door-9"
+                x1="479.82"
+                y1="457.71"
+                x2="479.82"
+                y2="625.34"
+                fill="none"
+                stroke="#714d27"
+                stroke-miterlimit="10"
+                stroke-width="7"
+              />
+        
+              <g id="living_room">
+                <circle
+                  id="light-1"
+                  class="light-livingroom"
+                  cx="438.16"
+                  cy="141.93"
+                  r="17.28"
+                  fill="#faec4c"
+                  opacity="0"
+                  class="status"
+                />
+                <rect
+                  class="window"
+                  id="window-1"
+                  x="596.56"
+                  y="85.9"
+                  width="10.08"
+                  height="79.53"
+                  fill="#46a7dc"
+                />
+                <rect
+                  class="window"
+                  id="window-2"
+                  x="412.84"
+                  y="57.99"
+                  width="78.14"
+                  height="8.65"
+                  fill="#46a7dc"
+                />
+                <rect
+                  class="window"
+                  id="window-3"
+                  x="382.98"
+                  y="85.9"
+                  width="10.33"
+                  height="79.53"
+                  fill="#46a7dc"
+                />
+              </g>
+        
+              <g id="kitchen">
+                <circle
+                  id="light-2"
+                  class="light-kitchen"
+                  cx="412.84"
+                  cy="373.91"
+                  r="13.94"
+                  fill="#faec4c"
+                  opacity="0"
+                  class="status"
+                />
+                <rect
+                  class="window"
+                  id="window-4"
+                  x="499.08"
+                  y="426.92"
+                  width="80.09"
+                  height="11.16"
+                  fill="#46a7dc"
+                />
+                <rect
+                  class="window"
+                  id="window-5"
+                  x="597.03"
+                  y="330.08"
+                  width="8.93"
+                  height="78.98"
+                  fill="#46a7dc"
+                />
+              </g>
+        
+              <g id="bath1">
+                <circle
+                  id="light-3"
+                  class="light-bath1"
+                  cx="54.62"
+                  cy="128.87"
+                  r="11.68"
+                  fill="#faec4c"
+                  opacity="0"
+                  class="status"
+                />
+                <rect
+                  class="window"
+                  id="window-6"
+                  x="23.54"
+                  y="105.43"
+                  width="10.33"
+                  height="57.77"
+                  fill="#46a7dc"
+                />
+              </g>
+        
+              <g id="bath2">
+                <circle
+                  id="light-4"
+                  class="light-bath2"
+                  cx="69.66"
+                  cy="259.72"
+                  r="11.68"
+                  fill="#faec4c"
+                  opacity="0"
+                  class="status"
+                />
+                <rect
+                  class="window"
+                  id="window-7"
+                  x="23.54"
+                  y="214.83"
+                  width="10.33"
+                  height="56.58"
+                  fill="#46a7dc"
+                />
+              </g>
+        
+              <g id="bdrm1">
+                <circle
+                  id="light-5"
+                  class="light-bdrm1"
+                  cx="144.72"
+                  cy="141.93"
+                  r="17.28"
+                  fill="#faec4c"
+                  opacity="0"
+                  class="status"
+                />
+                <rect
+                  class="window"
+                  id="window-8"
+                  x="188.47"
+                  y="57.99"
+                  width="29.3"
+                  height="10.05"
+                  fill="#46a7dc"
+                  stroke="#221f20"
+                  stroke-miterlimit="10"
+                  stroke-width=".5"
+                />
+                <rect
+                  class="window"
+                  id="window-9"
+                  x="140.37"
+                  y="57.99"
+                  width="29.3"
+                  height="10.05"
+                  fill="#46a7dc"
+                  stroke="#221f20"
+                  stroke-miterlimit="10"
+                  stroke-width=".5"
+                />
+              </g>
+        
+              <g id="bdrm2">
+                <circle
+                  id="light-6"
+                  class="light-bdrm2"
+                  cx="98.63"
+                  cy="379.29"
+                  r="17.28"
+                  fill="#faec4c"
+                  opacity="0"
+                  class="status"
+                />
+                <rect
+                  class="window"
+                  id="window-10"
+                  x="118.37"
+                  y="427.29"
+                  width="29.3"
+                  height="10.05"
+                  fill="#46a7dc"
+                  stroke="#221f20"
+                  stroke-miterlimit="10"
+                  stroke-width=".5"
+                />
+                <rect
+                  class="window"
+                  id="window-11"
+                  x="69.66"
+                  y="427.29"
+                  width="29.3"
+                  height="10.05"
+                  fill="#46a7dc"
+                  stroke="#221f20"
+                  stroke-miterlimit="10"
+                  stroke-width=".5"
+                />
+              </g>
+        
+              <g id="bdrm3">
+                <circle id="light-7" class="light-bdrm3" cx="216.16" cy="373.91"
+                r="17.28" fill="#faec4c"/ opacity="0" class="status"/>
+                <rect
+                  class="window"
+                  id="window-12"
+                  x="218.7"
+                  y="427.29"
+                  width="29.3"
+                  height="10.05"
+                  fill="#46a7dc"
+                  stroke="#221f20"
+                  stroke-miterlimit="10"
+                  stroke-width=".5"
+                />
+                <rect
+                  class="window"
+                  id="window-13"
+                  x="169.98"
+                  y="427.29"
+                  width="29.3"
+                  height="10.05"
+                  fill="#46a7dc"
+                  stroke="#221f20"
+                  stroke-miterlimit="10"
+                  stroke-width=".5"
+                />
+              </g>
+            </svg>
+          </div>
+
+        <!-- HVAC -->
+        <div class="card card-row1 card2">
+          <h1 class="title_hvac">HVAC</h1>
+          <div class="hvac">
+      
+            <div class="controls_hvac">
+              <button class="control-button minus"><i class="fa-solid fa-caret-down"></i></button>
+            </div>
+      
+            <div id="thermostat" class="thermostat_hvac">
+      
+              <span class="temperature_hvac"></span>
+            </div>
+      
+            <div class="controls_hvac">
+              <button class="control-button plus"><i class="fa-solid fa-caret-up"></i></button>
+            </div>
+          </div>
+      
+          <span class="outer-temp">
+            <h5 style="margin-right: 10px;">Outside Temperature:</h5>
+            <span class="degree1" style="font-size: 14px"></span>
+          </span>
+          <li class="inner-temp">
+            <h5 style="margin-right: 10px;">Inside Temperature:</h5>
+            <span style="font-weight: bold;"></span>
+          </li>
+    
+      
+        </div>
+
+          <div class="filter_card">
+              <div id="myBtnContainer">
+                <button class="btn active" onclick="filterSelection('living-room')"> Living Room</button>
+                <button class="btn" onclick="filterSelection('kitchen')"> Kitchen</button>
+                <button class="btn" onclick="filterSelection('bdrm1')"> Bedroom 1</button>
+                <button class="btn" onclick="filterSelection('bdrm2')"> Bedroom 2</button>
+                <button class="btn" onclick="filterSelection('bdrm3')"> Bedroom 3</button>
+                <button class="btn" onclick="filterSelection('bath1')"> Bathroom 1</button>
+                <button class="btn" onclick="filterSelection('bath2')"> Bathroom 2</button>
+                <button class="btn" onclick="filterSelection('laundry')"> Laundry</button>
+                <button class="btn" onclick="filterSelection('doors')"> Doors</button>
+                <button class="scenario-btn btn" onclick="filterSelection('scenarios')"> Scenarios</button>
+              </div>
+            
+              <!-- The filterable elements-->
+              <div class="container filters">
+
+                <!-- LIVING ROOM -->
+                  <div class="light-switch switch filterDiv living-room" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-tv"></i>
+                    <div class="name">TV</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch switch filterDiv living-room" id="switch-1" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Light</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch switch filterDiv living-room" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Lamp 1</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch switch filterDiv living-room" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Lamp 2</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv living-room" id="switch-1" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 1</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv living-room" id="switch-2" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 2</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv living-room" id="switch-3" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 3</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+                  <!-- KITCHEN -->
+
+                  <div class="light-switch switch filterDiv kitchen" id="switch-2" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Light</div>
+                    <div class="status">Off</div>
+                  </div>
+    
+                  <div class="light-switch filterDiv kitchen" id="" style="background-color: #d4edda; border-color: #c3e6cb; transition: all 0.5s ease;">
+                    <img src="{{ url_for('static', filename='icons/refrigerator.png') }}" alt="refrigerator icon" style="width: 30px; padding-top: 5px;">
+                    <div class="name">Refrigerator</div>
+                    <div class="status">On</div>
+                  </div>
+                  
+                  <div class="light-switch filterDiv kitchen" id="" onclick="toggleSwitch(this)">
+                    <img src="{{ url_for('static', filename='icons/oven.png') }}" alt="oven icon" style="width: 30px; padding-top: 5px;">
+                    <div class="name">Oven</div>
+                    <div class="status">Off</div>
+                  </div>
+
+                  <div class="light-switch filterDiv kitchen" id="" onclick="toggleSwitch(this)">
+                    <img src="{{ url_for('static', filename='icons/gas-stove.png') }}" alt="stove icon" style="width: 30px; padding-top: 5px;">
+                    <div class="name">Stove</div>
+                    <div class="status">Off</div>
+                  </div>
+
+                  <div class="light-switch filterDiv kitchen" id="" onclick="toggleSwitch(this)">
+                    <img src="{{ url_for('static', filename='icons/microwave.png') }}" alt="microwave icon" style="width: 30px; padding-top: 5px;">
+                    <div class="name">Microwave</div>
+                    <div class="status">Off</div>
+                  </div>
+
+                  <div class="light-switch filterDiv kitchen" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-sink"></i>
+                    <div class="name">Dishwasher</div>
+                    <div class="status">Off</div>
+                  </div>
+
+                  <div class="light-switch window_switch filterDiv kitchen" id="switch-4" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 1</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+                  <div class="light-switch window_switch filterDiv kitchen" id="switch-5" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 2</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+                  <!-- Bedroom 1 -->
+                  <div class="light-switch switch filterDiv bdrm1" id="switch-5" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Light</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch filterDiv bdrm1" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-tv"></i>
+                    <div class="name">TV</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch filterDiv bdrm1" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Lamp 1</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch filterDiv bdrm1" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Lamp 2</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv bdrm1" id="switch-8" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 1</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv bdrm1" id="switch-9" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 2</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+                  <!-- BEDROOM 2 -->
+
+                  <div class="light-switch switch filterDiv bdrm2" id="switch-6" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name"> Light</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch filterDiv bdrm2" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Lamp 1</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch filterDiv bdrm2" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Lamp 2</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv bdrm2" id="switch-10" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 1</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv bdrm2" id="switch-11" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 2</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+                  <!-- BEDROOM 3 -->
+
+                  <div class="light-switch switch filterDiv bdrm3" id="switch-7" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name"> Light</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch filterDiv bdrm3" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Lamp 1</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch filterDiv bdrm3" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name">Lamp 2</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv bdrm3" id="switch-12" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 1</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+                  <div class="light-switch window_switch filterDiv bdrm3" id="switch-13" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window 2</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+                  <!-- Bathroom 1 -->
+
+                  <div class="light-switch switch filterDiv bath1" id="switch-3" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name"> Light</div>
+                    <div class="status">Off</div>
+                  </div>
+
+                  <div class="light-switch filterDiv bath1" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-fan"></i>
+                    <div class="name">Exhaust Fan</div>
+                    <div class="status">Off</div>
+                  </div>
+
+                  <div class="light-switch window_switch filterDiv bath1" id="switch-6" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+                  <!-- Bathroom 2 -->
+
+                  <div class="light-switch switch filterDiv bath2" id="switch-4" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div class="name"> Light</div>
+                    <div class="status">Off</div>
+                  </div>
+
+                  <div class="light-switch filterDiv bath2" id="" onclick="toggleSwitch(this)">
+                    <i class="fa-solid fa-fan"></i>
+                    <div class="name">Exhaust Fan</div>
+                    <div class="status">Off</div>
+                  </div>
+
+                  <div class="light-switch window_switch filterDiv bath2" id="switch-7" onclick="windowToggleSwitch(this)">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Window</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+
+                  <!-- Laundry -->
+
+                  <div class="light-switch filterDiv laundry" id="" onclick="toggleSwitch(this)">
+                    <img src="{{ url_for('static', filename='icons/washer.png') }}" alt="washer icon" style="width: 30px; padding-top: 5px;">
+                    <div class="name">Washer</div>
+                    <div class="status">Off</div>
+                  </div>
+                  <div class="light-switch filterDiv laundry" id="" onclick="toggleSwitch(this)">
+                    <img src="{{ url_for('static', filename='icons/dryer.png') }}" alt="dryer icon" style="width: 30px; padding-top: 5px;">
+                    <div class="name">Dryer</div>
+                    <div class="status">Off</div>
+                  </div>
+
+
+                  <!-- Doors -->
+                  <div class="light-switch window_switch filterDiv doors" id="" onclick="">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Front Door</div>
+                    <div class="window_status">Closed</div>
+                  </div>
+
+                  <div class="light-switch filterDiv doors" id="" onclick="" >
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Side Door</div>
+                    <div class="status">Closed</div>
+                  </div>
+
+                  <div class="light-switch filterDiv doors" id="" onclick="">
+                    
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Back Door</div>
+                    <div class="status">Closed</div>
+                  </div>
+
+                  <div class="light-switch filterDiv doors " id="garage_door" onclick="toggleGarageDoor()">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <div class="name">Garage Door</div>
+                    <div class="status" id="garage_status">Closed</div>
+                  </div>
+
+
+
+                  <!-- SCENARIOS -->
+
+                  <div class="light-switch switch filterDiv scenarios" id="shower" onclick="showerClicked()" onmousedown="this.style.backgroundColor='#d4edda'" onmouseup="setTimeout(function(){this.style.backgroundColor='';}.bind(this), 2000)">
+                    <i class="fa-solid fa-shower"></i>
+                    <div class="name">Shower Cycle</div>
+                    <div class="status"></div>
+                  </div>
+
+                  <div class="light-switch switch filterDiv scenarios" id="dishwasher" onclick="dishwasherClicked()" onmousedown="this.style.backgroundColor='#d4edda'" onmouseup="setTimeout(function(){this.style.backgroundColor='';}.bind(this), 2000)">
+                    <i class="fa-solid fa-utensils"></i>
+                    <div class="name" style="margin-top: 5px;">Dishwasher Cycle</div>
+                    <p class="status"></p>
+                  </div>
+
+              </div>
+          </div>
+      
+  
+            
+      </div>
+
+      <!--  -->
+    <script>
+
+      const livingRoom = document.getElementsByClassName('living-room');
+      const kitchen = document.getElementsByClassName('kitchen');
+      const bedroom1 = document.getElementsByClassName('bdrm1');
+      const bedroom2 = document.getElementsByClassName('bdrm2');
+      const bedroom3 = document.getElementsByClassName('bdrm3');
+      const bathroom1 = document.getElementsByClassName('bath1');
+      const bathroom2 = document.getElementsByClassName('bath2');
+      const laundry = document.getElementsByClassName('laundry');
+      const scenarios = document.getElementsByClassName('scenarios');
+
+      const setLights = (element, isOn) => {
+        element.querySelector('.status').textContent = isOn ? 'On' : 'Off';
+
+        if(isOn) {
+          element.classList.add('on');
+          if(element.dataset.svgId) {
+            const svgLight = document.querySelector(`#${element.dataset.svgId}`);
+            svgLight.style.opacity = '100';
+          }
+        }
+      };
+
+      const setWindowsAndDoors = (element, isOpen) => {
+        element.querySelector('.window_status').textContent = isOpen ? 'Open' : 'Closed';
+
+        if(isOpen) {
+          element.classList.add('on');
+        }
+      }
+
+      fetch('http://localhost:8000/appliances')
+      .then(response => response.json())
+      .then(house => {
+        livingRoom[0].dataset.applianceId = house.livingRoom.television.id;
+        setLights(livingRoom[0], house.livingRoom.television.isOn);
+        livingRoom[1].dataset.applianceId = house.livingRoom.overheadLight.id;
+        livingRoom[1].dataset.svgId = 'light-1';
+        setLights(livingRoom[1], house.livingRoom.overheadLight.isOn);
+        livingRoom[2].dataset.applianceId = house.livingRoom.firstLamp.id;
+        setLights(livingRoom[2], house.livingRoom.firstLamp.isOn);
+        livingRoom[3].dataset.applianceId = house.livingRoom.secondLamp.id;
+        setLights(livingRoom[3], house.livingRoom.secondLamp.isOn);
+        livingRoom[4].dataset.applianceId = house.livingRoom.firstWindow.id;
+        setWindowsAndDoors(livingRoom[4], house.livingRoom.firstWindow.isOpen);
+        livingRoom[5].dataset.applianceId = house.livingRoom.secondWindow.id;
+        setWindowsAndDoors(livingRoom[5], house.livingRoom.secondWindow.isOpen);
+        livingRoom[6].dataset.applianceId = house.livingRoom.thirdWindow.id;
+        setWindowsAndDoors(livingRoom[6], house.livingRoom.thirdWindow.isOpen);
+
+        kitchen[0].dataset.applianceId = house.kitchen.overheadLight.id;
+        kitchen[0].dataset.svgId = 'light-2';
+        setLights(kitchen[0], house.kitchen.overheadLight.isOn);
+        kitchen[1].dataset.applianceId = house.kitchen.refrigerator.id;
+        setLights(kitchen[1], house.kitchen.refrigerator.isOn);
+        kitchen[2].dataset.applianceId = house.kitchen.oven.id;
+        setLights(kitchen[2], house.kitchen.oven.isOn);
+        kitchen[3].dataset.applianceId = house.kitchen.stove.id;
+        setLights(kitchen[3], house.kitchen.stove.isOn);
+        kitchen[4].dataset.applianceId = house.kitchen.microwave.id;
+        setLights(kitchen[4], house.kitchen.microwave.isOn);
+        kitchen[5].dataset.applianceId = house.kitchen.dishwasher.id;
+        setLights(kitchen[5], house.kitchen.dishwasher.isOn);
+        kitchen[6].dataset.applianceId = house.kitchen.firstWindow.id;
+        setWindowsAndDoors(kitchen[6], house.kitchen.firstWindow.isOpen);
+        kitchen[7].dataset.applianceId = house.kitchen.secondWindow.id;
+        setWindowsAndDoors(kitchen[7], house.kitchen.secondWindow.isOpen);
+
+        bedroom1[0].dataset.applianceId = house.masterBedroom.overheadLight.id;
+        bedroom1[0].dataset.svgId = 'light-5';
+        setLights(bedroom1[0], house.masterBedroom.overheadLight.isOn);
+        bedroom1[1].dataset.applianceId = house.masterBedroom.television.id;
+        setLights(bedroom1[1], house.masterBedroom.television.isOn);
+        bedroom1[2].dataset.applianceId = house.masterBedroom.firstLamp.id;
+        setLights(bedroom1[2], house.masterBedroom.firstLamp.isOn);
+        bedroom1[3].dataset.applianceId = house.masterBedroom.secondLamp.id;
+        setLights(bedroom1[3], house.masterBedroom.secondLamp.isOn);
+        bedroom1[4].dataset.applianceId = house.masterBedroom.firstWindow.id;
+        setWindowsAndDoors(bedroom1[4], house.masterBedroom.firstWindow.isOpen);
+        bedroom1[5].dataset.applianceId = house.masterBedroom.secondWindow.id;
+        setWindowsAndDoors(bedroom1[5], house.masterBedroom.secondWindow.isOpen);
+
+        bedroom2[0].dataset.applianceId = house.bedroom2.overheadLight.id;
+        bedroom2[0].dataset.svgId = 'light-6';
+        setLights(bedroom2[0], house.bedroom2.overheadLight.isOn);
+        bedroom2[1].dataset.applianceId = house.bedroom2.firstLamp.id;
+        setLights(bedroom2[1], house.bedroom2.firstLamp.isOn);
+        bedroom2[2].dataset.applianceId = house.bedroom2.secondLamp.id;
+        setLights(bedroom2[2], house.bedroom2.secondLamp.isOn);
+        bedroom2[3].dataset.applianceId = house.bedroom2.firstWindow.id;
+        setWindowsAndDoors(bedroom2[3], house.bedroom2.firstWindow.isOpen);
+        bedroom2[4].dataset.applianceId = house.bedroom2.secondWindow.id;
+        setWindowsAndDoors(bedroom2[4], house.bedroom2.secondWindow.isOpen);
+
+        bedroom3[0].dataset.applianceId = house.bedroom3.overheadLight.id;
+        bedroom3[0].dataset.svgId = 'light-7';
+        setLights(bedroom3[0], house.bedroom3.overheadLight.isOn);
+        bedroom3[1].dataset.applianceId = house.bedroom3.firstLamp.id;
+        setLights(bedroom3[1], house.bedroom3.firstLamp.isOn);
+        bedroom3[2].dataset.applianceId = house.bedroom3.secondLamp.id;
+        setLights(bedroom3[2], house.bedroom3.secondLamp.isOn);
+        bedroom3[3].dataset.applianceId = house.bedroom3.firstWindow.id;
+        setWindowsAndDoors(bedroom3[3], house.bedroom3.firstWindow.isOpen);
+        bedroom3[4].dataset.applianceId = house.bedroom3.secondWindow.id;
+        setWindowsAndDoors(bedroom3[4], house.bedroom3.secondWindow.isOpen);
+
+        bathroom1[0].dataset.applianceId = house.bathroom1.overheadLight.id;
+        bathroom1[0].dataset.svgId = 'light-3';
+        setLights(bathroom1[0], house.bathroom1.overheadLight.isOn);
+        bathroom1[1].dataset.applianceId = house.bathroom1.exhaustFan.id;
+        setLights(bathroom1[1], house.bathroom1.exhaustFan.isOn);
+        bathroom1[2].dataset.applianceId = house.bathroom1.window.id;
+        setWindowsAndDoors(bathroom1[2], house.bathroom1.window.isOpen);
+        
+        bathroom2[0].dataset.applianceId = house.bathroom2.overheadLight.id;
+        bathroom2[0].dataset.svgId = 'light-4';
+        setLights(bathroom2[0], house.bathroom2.overheadLight.isOn);
+        bathroom2[1].dataset.applianceId = house.bathroom2.exhaustFan.id;
+        setLights(bathroom2[1], house.bathroom2.exhaustFan.isOn);
+        bathroom2[2].dataset.applianceId = house.bathroom2.window.id;
+        setWindowsAndDoors(bathroom2[2], house.bathroom2.window.isOpen);
+
+        laundry[0].dataset.applianceId = house.washer.id;
+        setLights(laundry[0], house.washer.isOn);
+        laundry[1].dataset.applianceId = house.dryer.id;
+        setLights(laundry[1], house.dryer.isOn);
+      });
+
+      function toggleSwitch(switchElem) {
+        const applianceId = switchElem.dataset.applianceId;
+        const options = {
+          method: 'Head'
+        };
+
+        fetch(
+          'http://localhost:8000/appliances/toggle/' + applianceId, 
+          options
+        ).then(response => {
+          if(response.status === 200) {
+            switchElem.classList.toggle('on');
+            const statusElem = switchElem.querySelector('.status');
+            const currentStatus = statusElem.textContent;
+            // console.log(currentStatus);
+            statusElem.textContent = currentStatus === 'Off' ? 'On' : 'Off';
+          }
+        });
+      }
+
+      function windowToggleSwitch(switchElem) {
+        const applianceId = switchElem.dataset.applianceId;
+        const options = {
+          method: 'Head'
+        };
+
+        fetch(
+          'http://localhost:8000/appliances/toggle/' + applianceId, 
+          options
+        ).then(response => {
+          if(response.status === 200) {
+            switchElem.classList.toggle('on');
+            const windowStatusElem = switchElem.querySelector('.window_status');;
+            const currentWindowStatus = windowStatusElem.textContent;
+            // console.log(currentWindowStatus);
+            windowStatusElem.textContent = currentWindowStatus === 'Closed' ? 'Open' : 'Closed';
+          }
+        });
+      }
+
+
+      const switchButtons = document.querySelectorAll('.switch');
+      switchButtons.forEach(function(switchButton) {
+        switchButton.addEventListener("click", function() {
+          const id = switchButton.dataset.svgId;
+          if(id) {
+            const lightOn = document.querySelector(`#${id}`);
+            // console.log(lightOn);
+  
+            if (lightOn.style.opacity === "100") {
+              // console.log(lightOn);
+              lightOn.style.opacity = "0";
+            } 
+  
+            else{
+              lightOn.style.opacity = "100";
+            }
+          }
+        });
+      });
+
+
+      const windowSwitchButtons = document.querySelectorAll('.window_switch');
+      windowSwitchButtons.forEach(function(switchButton) {
+        switchButton.addEventListener("click", function() {
+          const id = switchButton.id.split("-")[1];
+          // console.log(id);
+          const lightOn = document.querySelector(`#window-${id}`);
+          // console.log(lightOn);
+
+          if (lightOn.style.opacity === "0") {
+            // console.log(lightOn);
+            lightOn.style.opacity = "100";
+          } 
+
+          else{
+            lightOn.style.opacity = "0";
+          }
+        });
+      });
+    </script>
+
+
+    <script>
+        filterSelection("living-room")
+
+
+        function filterSelection(c) {
+          var x, i;
+          x = document.getElementsByClassName("filterDiv");
+          if (c == "all") c = "";
+          // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+          for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+          }
+        }
+
+        // Show filtered elements
+        function w3AddClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+              element.className += " " + arr2[i];
+            }
+          }
+        }
+
+        // Hide elements that are not selected
+        function w3RemoveClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+              arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+          }
+          element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current control button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }
+
+
+        const temperature = document.querySelector('.temperature_hvac');
+        const thermostat = document.querySelector('.thermostat_hvac');
+        const minusButton = document.querySelector('.minus');
+        const plusButton = document.querySelector('.plus');
+        const indoorTemp = document.querySelector('.indoor_temp');
+
+        minusButton.addEventListener('click', function () {
+          thermostat.style.borderColor = 'lightblue';
+          setTimeout(function () {
+            thermostat.style.borderColor = 'white';
+          }, 1000);
+        });
+
+        plusButton.addEventListener('click', function () {
+          thermostat.style.borderColor = 'lightcoral';
+          setTimeout(function () {
+            thermostat.style.borderColor = 'white';
+          }, 1000);
+        });
+
+        // const showerButton = document.querySelector(scenarios[0]);
+        // const dishwasherButton = document.querySelector(scenarios[1]);
+
+        function showerClicked() {
+          document.getElementById("shower").querySelector(".status").textContent = "Running";
+          setTimeout(function() {
+            document.getElementById("shower").querySelector(".status").textContent = "";
+          }, 2000);
+
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', '/showerscenario', true);
+          xhr.onload = function(){
+            if (xhr.status == 200){
+              var result = JSON.parse(xhr.responseText).result;
+              
+            }
+          };
+          xhr.send();
+            {{showerScenario()|safe}}
+        }
+
+        function dishwasherClicked() {
+          // var statusDiv = document.getElementById("dishwasher").getElementsByClassName("status")[0];
+          // statusDiv.innerHTML = "Running";
+
+          document.getElementById("dishwasher").querySelector(".status").textContent = "Running";
+          setTimeout(function() {
+            document.getElementById("dishwasher").querySelector(".status").textContent = "";
+          }, 2000);
+
+
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', '/dwscenario', true);
+          xhr.onload = function(){
+            if (xhr.status == 200){
+              var result = JSON.parse(xhr.responseText).result;
+              
+            }
+          };
+          xhr.send();
+          {{dishwasherScenario()|safe}}
+        }
+
+        function toggleGarageDoor() {
+          const svg = document.getElementById("door-9");
+          const button = document.getElementById("garage_door");
+          const status = document.getElementById("garage_door").getElementsByClassName('status');
+  
+
+          // console.log(svg);
+          if (svg.style.opacity === "100") {
+            svg.style.opacity = "0";
+            button.classList.add("on"); 
+            status.innerHTML = "Open";
+          } 
+          else{
+            svg.style.opacity = "100";
+            button.classList.remove("on"); 
+            status.innerHTML = "Closed";
+          }
+        }
+
+    </script>
+
+
+{% endblock %}
